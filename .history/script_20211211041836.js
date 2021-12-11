@@ -1,11 +1,9 @@
 const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteLength = document.getElementById("quoteLength");
-const text = document.getElementById("text");
+const quoteLength = document.getElementById("quoteLength");
 const quoteInputElement = document.getElementById("quoteInput");
 const timerElement = document.getElementById("timer");
-
-text.innerHTML = "This is m text";
 
 quoteInputElement.addEventListener("input", () => {
   const quoteArray = quoteDisplayElement.querySelectorAll("span");

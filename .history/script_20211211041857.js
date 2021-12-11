@@ -5,7 +5,7 @@ const text = document.getElementById("text");
 const quoteInputElement = document.getElementById("quoteInput");
 const timerElement = document.getElementById("timer");
 
-text.innerHTML = "This is m text";
+text.in
 
 quoteInputElement.addEventListener("input", () => {
   const quoteArray = quoteDisplayElement.querySelectorAll("span");
