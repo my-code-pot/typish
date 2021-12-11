@@ -4,7 +4,6 @@ const quoteLength = document.getElementById("quoteLength");
 // const quoteInputElement = document.getElementById("quoteInput");
 // const timerElement = document.getElementById("timer");
 
-quoteLength.innerHTML = "Quote Length: "
 
 // quoteInputElement.addEventListener("input", () => {
 //   const quoteArray = quoteDisplayElement.querySelectorAll("span");
