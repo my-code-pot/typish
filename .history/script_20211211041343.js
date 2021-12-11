@@ -1,8 +1,8 @@
-const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
-const quoteDisplayElement = document.getElementById("quoteDisplay");
+// const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
+// const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteLength = document.getElementById("quoteLength");
-const quoteInputElement = document.getElementById("quoteInput");
-const timerElement = document.getElementById("timer");
+// const quoteInputElement = document.getElementById("quoteInput");
+// const timerElement = document.getElementById("timer");
 
 quoteInputElement.addEventListener("input", () => {
   const quoteArray = quoteDisplayElement.querySelectorAll("span");
@@ -28,8 +28,8 @@ quoteInputElement.addEventListener("input", () => {
 
 function getRandomQuote() {
   return fetch(RANDOM_QUOTE_API_URL)
-    .then((response) => response.json())
-    .then((data) => data.content);
+    .then(response => response.json())
+    .then(data => data.content);
 }
 
 async function renderNextQuote() {
@@ -38,7 +38,7 @@ async function renderNextQuote() {
   quoteLength.innerHTML = words.length;
 
   quoteDisplayElement.innerText = "";
-  quote.split("").forEach((character) => {
+  quote.split("").forEach(character => {
     const characterSpan = document.createElement("span");
     // characterSpan.classList.add("correct");
     // characterSpan.classList.add("incorrect");
