@@ -1,13 +1,16 @@
-const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
+
 const quoteDisplayElement = document.getElementById("quoteDisplay");
-const quoteLength = document.getElementById("quoteLength");
-const text = document.getElementById("text");
+const author = document.getElementsByClassName("author");
 const quoteInputElement = document.getElementById("quoteInput");
 const timerElement = document.getElementById("timer");
 
-text.innerHTML = "This is m text";
 
-quoteInputElement.addEventListener("input", () => {
+
+var quotes = [];
+
+function main(quotes) {
+
+  quoteInputElement.addEventListener("input", () => {
   const quoteArray = quoteDisplayElement.querySelectorAll("span");
   const valueArray = quoteInputElement.value.split("");
   let correct = true;
@@ -29,19 +32,15 @@ quoteInputElement.addEventListener("input", () => {
   if (correct) renderNextQuote();
 });
 
-function getRandomQuote() {
-  return fetch(RANDOM_QUOTE_API_URL)
-    .then((response) => response.json())
-    .then((data) => data.content);
-}
-
-async function renderNextQuote() {
-  const quote = await getRandomQuote();
-  words = quote.split(" ");
-  quoteLength.innerHTML = words.length;
+function renderNextQuote() {
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+  const quoteText = quote.text;
+  console.log(quotes)
+  words = quoteText.split(" ");
 
   quoteDisplayElement.innerText = "";
-  quote.split("").forEach((character) => {
+  author[0].innerText = quote.author
+  quoteText.split("").forEach((character) => {
     const characterSpan = document.createElement("span");
     // characterSpan.classList.add("correct");
     // characterSpan.classList.add("incorrect");
@@ -66,3 +65,14 @@ function getTimer() {
 }
 
 renderNextQuote();
+}
+
+
+async function getQuotes() {
+  const response = await fetch("https://type.fit/api/quotes");
+  const fetchedQuotes = await response.json();
+  main(fetchedQuotes);
+}
+
+
+getQuotes();
